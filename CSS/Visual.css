@@ -1,0 +1,58 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+section
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #1c1e3f;
+}
+
+section .voar
+{
+    position: relative;
+    width: 400px;
+    height: 100vh;
+    background: #1378bc;
+    border-left: 20px solid rgba(0, 0, 0, 0.25);
+    border-right: 20px solid rgba(0, 0, 0, 0.25);
+
+}
+
+section .voar::before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 100%;
+    background: repeating-linear-gradient(transparent 0%, transparent 50%, #fff 50%, #fff 100%);
+    background-size: 20px 320px;
+    animation: animateVoar 1s linear infinite;
+}
+
+section:active .voar::before
+{
+    animation: animateVoar 0.25s linear infinite;
+}
+
+@keyframes animateVoar
+{
+    0%
+    {
+        background-position-y: 0px;
+    }
+
+    100%
+    {
+        background-position-y: 640px;
+    }
+}
+
